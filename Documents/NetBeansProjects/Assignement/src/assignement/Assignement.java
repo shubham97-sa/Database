@@ -34,6 +34,8 @@ import org.apache.log4j.Level;
 public class Assignement {
     static  List<String[]> list= new ArrayList();
 
+
+
     
     public static void ReadFile() {
         
@@ -47,12 +49,15 @@ public class Assignement {
                 String str=sc.nextLine();
                
                 parseLine(str);
-            } 
+            
             if(!list.isEmpty()){
-                try(CSVWriter writer=new  CSVWriter(new FileWriter("D:\\new.csv"))){
-                    writer.writeAll(list);
-                }
-           
+//                try(CSVWriter writer=new  CSVWriter(new FileWriter("D:\\new2.csv"))){
+//                    writer.writeAll(list);
+Write csvWrite = new Write();
+csvWrite.csv(list);
+            }
+            
+//                }
            
             }
         }catch(IOException e){
@@ -70,10 +75,7 @@ public class Assignement {
 
 
     public static boolean parseLine(String str) throws SecurityException,IOException {
-//        final Logger logger=Logger.getLogger(Assignement.class.getName());
-//        FileHandler file_handler=null;
-//        
-        
+
         SimpleDateFormat format=new SimpleDateFormat("M-d_HHmmss");
         boolean result=false;
         if(str.matches("^[0-9a-zA-Z|]+$")){
@@ -87,8 +89,6 @@ public class Assignement {
 //            System.out.println(Arrays.toString(arr));
          System.out.println("Year- " + arr[year_profit.year] + " Country- " + arr[year_profit.country].toUpperCase() + " State- " + arr[year_profit.state] + " City- " + arr[year_profit.city] + " Item- " + arr[year_profit.item] + " Profit-" + "$"+ Math.round(Double.parseDouble(arr[year_profit.profit])/74.38));
         list.add(arr);
-        
-        
         }
         else if(arr.length!=6){
             Logs.print_logs("Please enter valid record");
@@ -105,12 +105,7 @@ public class Assignement {
             Logs.print_logs("DELIMITER IS INVALID");
         }
         
-//        else {
-//            file_handler=new FileHandler("C:\\Users\\Public\\Documents\\log file"+ format.format(Calendar.getInstance().getTime())+ ".log");
-//            SimpleFormatter formatter= new SimpleFormatter();
-//                        file_handler.setFormatter(new SimpleFormatter());
-//           
-//        }
+
             
         }
         return true;
@@ -138,6 +133,7 @@ public class Assignement {
             logging1.error(msg);
         }
     }
+    
 }
     
 

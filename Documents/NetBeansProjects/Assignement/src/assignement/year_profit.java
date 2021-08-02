@@ -16,9 +16,10 @@ public class year_profit {
     public static int city=2;
     public static int item =4;
     public static int profit=3;
-    
+    public static double dolllarPrice=74.25; 
     public static void main(String args[]){
         Assignement.ReadFile();
+        
       
     }
     }
