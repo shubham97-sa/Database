@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignement;
+package ReadWrite;
+
+import Services.ReadFile;
 
 /**
  *
@@ -18,7 +20,7 @@ public class year_profit {
     public static int profit=3;
     public static double dolllarPrice=74.25; 
     public static void main(String args[]){
-        Assignement.ReadFile();
+        ReadFile.ReadFile();
         
       
     }
